@@ -1,0 +1,28 @@
+When you change the state, you should not change the type of the new state. Ex:
+
+this.state = {
+    name: {firstName: 'Cristian', lastName: 'George'}
+}
+
+The only way
+this.state.name.lastName = 'Alex'
+
+The wrong way
+this.state.name = 'Gabriel'
+Or
+this.state.name = 88
+
+Using this.setState(
+    this.state.name.firstName = 'Mihai'
+    console.log(this.state)
+)
+will result in console.log printing previews state
+
+In order to overcome this (although it is usefull in some situations)
+
+this.setState takes 2 arguments. 
+1st one is a function which will return the new state
+2nd one is an optional function.
+
+If you call the console.log(this.state) in the callback function, it will
+print the new updated state
